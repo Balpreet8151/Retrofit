@@ -2,6 +2,8 @@ package com.example.retrofittutorial
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.TextView
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -33,6 +35,12 @@ class MainActivity : AppCompatActivity() {
             ) {
 
                 val responseBody = response.body()
+                val textView = findViewById<TextView>(R.id.textView)
+                responseBody?.let {
+                    textView.text= it[0].id.toString()
+                    Log.d("Response","T")
+                }
+
 
 
 
